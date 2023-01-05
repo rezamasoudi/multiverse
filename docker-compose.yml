@@ -11,6 +11,7 @@ services:
     volumes:
       - ./www/:/var/www/:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/errors/:/etc/nginx/errors/
     networks:
       - multiverse
 
