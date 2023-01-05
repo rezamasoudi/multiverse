@@ -1,0 +1,261 @@
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: bold;
+    src: url("iranyekan/eot/iranyekanwebbold.eot");
+    src: url("iranyekan/eot/iranyekanwebbold.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekanwebbold.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanwebbold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 100;
+    src: url("iranyekan/eot/iranyekanwebthin.eot");
+    src: url("iranyekan/eot/iranyekanwebthin.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekanwebthin.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanwebthin.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 300;
+    src: url("iranyekan/eot/iranyekanweblight.eot");
+    src: url("iranyekan/eot/iranyekanweblight.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekanweblight.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanweblight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: normal;
+    src: url("iranyekan/eot/iranyekanwebregular.eot");
+    src: url("iranyekan/eot/iranyekanwebregular.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekanwebregular.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanwebregular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 500;
+    src: url("iranyekan/eot/iranyekanwebmedium.eot");
+    src: url("iranyekan/eot/iranyekanwebmedium.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekanwebmedium.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanwebmedium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 800;
+    src: url("iranyekan/eot/iranyekanwebextrabold.eot");
+    src: url("iranyekan/eot/iranyekanwebextrabold.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekanwebextrabold.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanwebextrabold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 900;
+    src: url("iranyekan/eot/iranyekanwebblack.eot");
+    src: url("iranyekan/eot/iranyekanwebblack.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekan/eot/iranyekanwebblack.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanwebblack.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 950;
+    src: url("iranyekan/eot/iranyekanwebextrablack.eot");
+    src: url("iranyekan/eot/iranyekanwebextrablack.eot?#iefix") format("embedded-opentype"),
+        /* IE6-8 */
+        url("iranyekan/woff/iranyekanwebextrablack.woff") format("woff"),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("iranyekan/ttf/iranyekanwebextrablack.ttf") format("truetype");
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    background: linear-gradient(135deg, #000000 0%, #2e3240 100%);
+    font-family: iranyekan, Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head {
+    display: block;
+    position: relative;
+    width: 200px;
+    margin: 10% auto 0;
+}
+
+.head::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #000;
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    border-radius: 50%;
+    box-shadow: 125px 0 0 #000;
+    animation: eye 10s infinite;
+}
+
+.eyes {
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    width: 75px;
+    height: 80px;
+    border-radius: 50% 50% 50% 50%/45px 45px 45% 45%;
+    transform: rotate(45deg);
+}
+
+.eyes::after {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid #fff;
+    width: 70px;
+    height: 50px;
+    left: 0px;
+    bottom: -10px;
+    border-radius: 50%;
+}
+
+.eyes::before {
+    bottom: auto;
+    top: -100px;
+    transform: rotate(45deg);
+    left: 0;
+}
+
+.eyes:nth-of-type(2) {
+    float: right;
+    transform: rotate(-45deg);
+}
+
+.eyes:nth-of-type(2)::after {
+    left: 5px;
+}
+
+.eyes:nth-of-type(3) {
+    display: none;
+}
+
+@keyframes eye {
+
+    0%,
+    30%,
+    55%,
+    90%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    10%,
+    25% {
+        transform: translate(0, 20px);
+    }
+
+    65% {
+        transform: translate(-20px, 0);
+    }
+
+    80% {
+        transform: translate(20px, 0);
+    }
+}
+
+
+.error-code {
+    text-align: center;
+    font-size: 72px;
+    font-weight: bold;
+    margin-top: 100px;
+    color: white;
+}
+
+.content {
+    direction: rtl;
+    color: white;
+    max-width: 540px;
+    margin: 20px auto;
+    line-height: 2em;
+    flex: 2;
+}
+
+.btn {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid white;
+    padding: 2px 24px;
+    border-radius: 12px;
+    margin: 12px 0;
+}
+
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.code {
+    display: inline-block;
+    background-color: #2e3240;
+    padding: 0px 6px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    vertical-align: middle;
+}
+
+/* footer {
+left: calc(50% - 30px);
+bottom: 20px;
+position: absolute;
+} */
+footer {
+    flex: 1;
+}
+
+footer img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}

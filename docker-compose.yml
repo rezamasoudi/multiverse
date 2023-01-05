@@ -1,0 +1,49 @@
+version: "3.7"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: multiverse_nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./wwww/:/var/www/:ro
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - multiverse
+
+  mysql:
+    image: mysql:latest
+    container_name: multiverse_mysql
+    restart: unless-stopped
+    env_file:
+      - config/mysql.env
+    command:
+      [
+        "mysqld",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_general_ci",
+      ]
+    networks:
+      - multiverse
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-p ${DB_PASSWORD:-multiverse}" ]
+      retries: 3
+      timeout: 5s
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: novacv_phpmyadmin
+    restart: unless-stopped
+    links:
+      - "mysql:db"
+    networks:
+      - multiverse
+    depends_on:
+      - mysql
+
+networks:
+  multiverse:
+    driver: bridge
