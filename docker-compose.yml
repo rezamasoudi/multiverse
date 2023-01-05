@@ -9,8 +9,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./www/:/var/www/:ro
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./storage/www/:/var/www/:ro
+      - ./storage/nginx/conf.d/:/etc/nginx/conf.d/
       - ./nginx/errors/:/etc/nginx/errors/
     networks:
       - multiverse
@@ -44,6 +44,18 @@ services:
       - multiverse
     depends_on:
       - mysql
+
+  file_browser:
+    image: filebrowser/filebrowser:latest
+    container_name: multiverse_file_browser
+    restart: unless-stopped
+    environment:
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+    volumes:
+      - ./storage:/srv
+    networks:
+      - multiverse
 
 networks:
   multiverse:
