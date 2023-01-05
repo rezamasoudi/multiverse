@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./wwww/:/var/www/:ro
+      - ./www/:/var/www/:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - multiverse
@@ -35,7 +35,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: novacv_phpmyadmin
+    container_name: multiverse_phpmyadmin
     restart: unless-stopped
     links:
       - "mysql:db"
@@ -46,4 +46,5 @@ services:
 
 networks:
   multiverse:
+    name: multiverse
     driver: bridge
