@@ -10,7 +10,7 @@ services:
       - "80:80"
     volumes:
       - ./storage/www/:/var/www/:ro
-      - ./storage/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
       - ./nginx/errors/:/etc/nginx/errors/
     networks:
       - multiverse
@@ -19,6 +19,7 @@ services:
     image: mysql:latest
     container_name: multiverse_mysql
     restart: unless-stopped
+    tty: true
     env_file:
       - config/mysql.env
     command:
@@ -38,6 +39,7 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: multiverse_phpmyadmin
     restart: unless-stopped
+    tty: true
     links:
       - "mysql:db"
     networks:
@@ -45,19 +47,6 @@ services:
     depends_on:
       - mysql
 
-  file_browser:
-    image: filebrowser/filebrowser:latest
-    container_name: multiverse_file_browser
-    restart: unless-stopped
-    environment:
-      PUID: "${PUID:-1000}"
-      PGID: "${PGID:-1000}"
-    volumes:
-      - ./storage:/srv
-    networks:
-      - multiverse
-
 networks:
   multiverse:
-    name: multiverse
-    driver: bridge
+    external: true
