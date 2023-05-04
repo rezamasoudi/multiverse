@@ -22,6 +22,8 @@ services:
     tty: true
     env_file:
       - config/mysql.env
+    ports:
+      - "3306:3306"
     command:
       [
         "mysqld",
@@ -40,12 +42,40 @@ services:
     container_name: multiverse_phpmyadmin
     restart: unless-stopped
     tty: true
+    ports:
+      - "3005:80"
     links:
       - "mysql:db"
     networks:
       - multiverse
     depends_on:
       - mysql
+
+  mail:
+    image: ghcr.io/docker-mailserver/docker-mailserver:latest
+    container_name: multiverse_mail_server
+    env_file:
+      - config/mail.env
+    ports:
+      - "25:25"
+      - "143:143"
+      - "465:465"
+      - "587:587"
+      - "993:993"
+    restart: unless-stopped
+    tty: true
+    networks:
+      - multiverse
+
+  webmail:
+    image: roundcube/roundcubemail:latest
+    container_name: multiverse_webmail
+    restart: unless-stopped
+    tty: true
+    env_file:
+      - config/webmail.env
+    networks:
+      - multiverse
 
 networks:
   multiverse:
